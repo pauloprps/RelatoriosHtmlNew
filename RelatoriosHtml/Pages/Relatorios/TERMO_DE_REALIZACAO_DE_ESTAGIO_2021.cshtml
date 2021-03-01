@@ -1,0 +1,604 @@
+﻿@page
+@model RelatoriosHtml.Pages.Relatorios.TERMO_DE_REALIZACAO_DE_ESTAGIO_2021Model
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="target-densitydpi=device-dpi, initial-scale=1.0, user-scalable=no" />
+    <title>TERMO DE REALIZAÇÃO DE ESTÁGIO 2021</title>
+    @*<link rel="icon" type="image/png" sizes="96x96" href="~/favicon.ico">*@
+    <style>
+        * {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #525659;
+            margin: 0;
+            padding: 0;
+        }
+
+        /**********************************
+        *   Botoes de acao no rodape
+        ***********************************/
+        a.btn {
+            text-decoration: none;
+        }
+
+        .btn {
+            display: inline-block;
+            font-weight: 400;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            border: 1px solid transparent;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            border-radius: .25rem;
+            transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out
+        }
+
+            .btn:focus,
+            .btn:hover {
+                text-decoration: none
+            }
+
+            .btn.focus,
+            .btn:focus {
+                outline: 0;
+                box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .25)
+            }
+
+            .btn.disabled,
+            .btn:disabled {
+                opacity: .65
+            }
+
+            .btn:not(:disabled):not(.disabled) {
+                cursor: pointer
+            }
+
+                .btn:not(:disabled):not(.disabled).active,
+                .btn:not(:disabled):not(.disabled):active {
+                    background-image: none
+                }
+
+        a.btn.disabled,
+        fieldset:disabled a.btn {
+            pointer-events: none
+        }
+
+        .btn-primary {
+            color: #fff;
+            background-color: #007bff;
+            border-color: #007bff
+        }
+
+            .btn-primary.grey {
+                color: rgb(7, 7, 7);
+                background-color: #a5a5a5;
+                border-color: #8b8b8b
+            }
+
+            .btn-primary:hover {
+                color: #fff;
+                background-color: #0069d9;
+                border-color: #0062cc
+            }
+
+            .btn-primary.focus,
+            .btn-primary:focus {
+                box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+            }
+
+            .btn-primary.disabled,
+            .btn-primary:disabled {
+                color: #fff;
+                background-color: #007bff;
+                border-color: #007bff
+            }
+
+            .btn-primary:not(:disabled):not(.disabled).active,
+            .btn-primary:not(:disabled):not(.disabled):active,
+            .show > .btn-primary.dropdown-toggle {
+                color: #fff;
+                background-color: #0062cc;
+                border-color: #005cbf
+            }
+
+                .btn-primary:not(:disabled):not(.disabled).active:focus,
+                .btn-primary:not(:disabled):not(.disabled):active:focus,
+                .show > .btn-primary.dropdown-toggle:focus {
+                    box-shadow: 0 0 0 .2rem rgba(0, 123, 255, .5)
+                }
+
+        .botoes {
+            padding: 5px 0;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #393939;
+        }
+
+            .botoes .btn {
+                font-size: 14px;
+            }
+
+        /**********************************
+        *   END Botoes de acao no rodape
+        ***********************************/
+
+        .grey {
+            background: #ddd;
+        }
+
+        .strong {
+            font-weight: bold;
+        }
+
+        .border {
+            border: 2px solid black;
+        }
+
+        .border {
+            border-bottom: none;
+        }
+
+            .border.cel_1 {
+                border-left: 0;
+            }
+
+        .content {
+            background: #FFF;
+            margin: 40px auto;
+            padding: 5px;
+            padding-bottom: 30px;
+            box-shadow: 2px 2px 12px rgba(0,0,0,0.6);
+            max-width: 820px;
+            width: 100%;
+        }
+
+        .celula {
+            height: 20px;
+        }
+
+        .super_celula {
+            height: 30px;
+        }
+
+        .label {
+            font-weight: bold !important;
+        }
+
+        .celula .label.id {
+            width: 10%;
+            min-width: 4px;
+            display: block;
+            padding-right: 0;
+            letter-spacing: -0.5px;
+            white-space: nowrap;
+        }
+
+        .celula .label.desc {
+            width: 80%;
+        }
+
+        .total .label, .total .valor {
+            text-align: center;
+            font-size: 12px;
+        }
+
+        .celula .valor, .celula .valor_2 {
+            /* display: unset; */
+        }
+
+        .col_1, .col_3, .col_5 {
+            width: 20%;
+        }
+
+        .col_2, .col_4, .col_6 {
+            width: 10%;
+        }
+
+            .col_2 table, .col_4 table, .col_6 table {
+                width: 100%;
+            }
+
+        .col_1 .valor, .col_3 .valor, .col_5 .valor {
+            text-align: right;
+            width: 5%;
+            padding-right: 0;
+        }
+
+        .col_1 .valor_2, .col_3 .valor_2, .col_5 .valor_2 {
+            text-align: left;
+            width: 95%;
+        }
+
+        .col_2 .valor, .col_4 .valor, .col_6 .valor {
+            width: 100%;
+            text-align: center;
+            display: table;
+        }
+
+        .center {
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+        }
+
+        @@media screen and (max-width: 796px) {
+            .content {
+                margin: 40px 10px;
+                max-width: initial;
+                width: initial;
+                display: inline-block;
+            }
+        }
+
+        @@media print {
+            .content {
+                margin: 0;
+                box-shadow: none;
+                padding: 0;
+            }
+
+            th h2 {
+                margin: 0;
+            }
+
+            .botoes {
+                display: none;
+            }
+
+            .celula {
+                height: 18px;
+            }
+
+            .super_celula {
+                height: 20px;
+            }
+
+            .grey {
+                box-shadow: 0 0 0 1000px #ddd inset; /* cor para impressão */
+            }
+
+            .border, #table_4 .border {
+                border: 1.5px solid black !important;
+            }
+        }
+
+        #img-header, #img-footer {
+            width: 100%;
+            height: 100%;
+        }
+
+        #title {
+            font-size: 21.33px;
+            color: #808080;
+            background-color: transparent;
+            font-weight: 700;
+            font-style: normal;
+            font-variant: normal;
+            text-decoration: none;
+            vertical-align: baseline;
+            white-space: pre;
+            text-align: center;
+        }
+
+        #sub-title {
+            font-size: 21.33px;
+            color: #808080;
+            background-color: transparent;
+            font-weight: 700;
+            font-style: normal;
+            font-variant: normal;
+            text-decoration: none;
+            vertical-align: baseline;
+            white-space: pre;
+            text-align: center;
+        }
+
+        .row {
+            font-size: 13.33px;
+            color: #000000;
+            background-color: transparent;
+            font-weight: 400;
+            font-style: normal;
+            font-variant: normal;
+            text-decoration: none;
+            vertical-align: baseline;
+            margin-top: 20px;
+            /*white-space: pre;*/
+        }
+
+        .row-columns {
+            display: flex;
+            align-items: start;
+            justify-content: center;
+        }
+
+        .no-style-ul {
+            list-style-type: none;
+            display: inline-block;
+            margin: 0;
+            padding-top: 0;
+        }
+
+        .content-center {
+            background: #FFF;
+            margin: 40px auto;
+            padding: 5px;
+            padding-bottom: 30px;
+            width: 550px;
+            text-align: justify
+        }
+
+        table.activities, th, td {
+            border-collapse: collapse;
+            border-color: #000;
+        }
+
+            table.activities thead tr td {
+                background-color: rgb(216, 216, 216);
+                font-weight: bold;
+                text-align: center;
+                border: 1px solid #000;
+            }
+
+            table.activities tbody tr td {
+                text-align: left;
+                border: 1px solid #000;
+                width: 70px
+            }
+
+        table.subscriptions, th, td {
+            border-collapse: collapse;
+            border-color: #000;
+        }
+
+            table.subscriptions tbody tr td {
+                text-align: left;
+                border: 1px solid #000;
+            }
+
+        .width-100 {
+            width: 100%
+        }
+
+        .height-10-px {
+            height: 10px;
+        }
+
+        .square-small {
+            width: 100%;
+            height: 50px;
+            border: 1px solid #000;
+        }
+
+        .square-medium {
+            width: 100%;
+            height: 100px;
+            border: 1px solid #000;
+        }
+
+        .text-right {
+            text-align: right !important;
+        }
+
+        .text-center {
+            text-align: center !important;
+        }
+
+        .height-70-px {
+            height: 70px;
+        }
+
+        .font-bold {
+            font-weight: bold;
+        }
+
+        .align-table-base {
+            display: table-cell;
+            vertical-align: bottom;
+        }
+
+        .font-size-10 {
+            font-size: 10px;
+        }
+
+        .float-left {
+            float: left;
+        }
+
+        .margin-top-30-px {
+            margin-top: 30px;
+        }
+
+        .margin-bottom-30-px {
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <img src="/images/header.png" id="img-header" />
+        <div id="title">TERMO DE REALIZAÇÃO DE ESTÁGIO</div>
+        <div id="sub-title">Agente de Integração</div>
+        <div class="row">&nbsp;</div>
+
+        <div class="content-center">
+            Pelo Presente instrumento jurídico, LIDERH SERVIÇOS E PROJETOS, a instituição Concedente:
+            ______________________________________, estagiário (a) ____________________ Curso de
+            _______________________________________ tendo como interveniente a Instituição de Ensino,
+            __________________________________________ já qualificados, respectivamente no Termo de
+            Compromisso de Estágio, firmam o presente Termo de Realização de Estágio fundamentado no artigo 9°
+            da Lei n° 11.788, de 25 de setembro de 2008 e de acordo com as normas da Instituição de Ensino, as
+            quais a instituição concedente declara conhecer a ainda com o disposto no Projeto Político Pedagógico
+            do Curso, que descreve as atividades pelo estagiário e avalia seu desempenho no período ___/__/____ à
+            ___/__/.
+
+            <br />
+            <br />
+            Fica interrompido o Termo de Compromisso de Estágio pelos motivos á seguir:
+            <div class="row margin-bottom-30-px margin-top-30-px">
+                <div class="row-columns">
+                    <div class="column-50">
+                        <ul class="no-style-ul float-left">
+                            <li>( ) Efetivação</li>
+                            <li>( ) Mudança de Curso</li>
+                            <li>( ) Abandono de Curso</li>
+                            <li>( ) Trancamento de Matrícula</li>
+                            <li>( ) Mudança de Instituição Concedente</li>
+                        </ul>
+                    </div>
+                    <div class="column-50">
+                        <ul class="no-style-ul float-left">
+                            <li>( ) Término de vigência</li>
+                            <li>( ) Motivos Particulares</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row">1. Indique resumidamente as atividades realizadas durante o estágio:</div>
+            <div class="row">_____________________________________________________________________________</div>
+            <div class="row">_____________________________________________________________________________</div>
+            <div class="row">_____________________________________________________________________________</div>
+            <div class="row">
+                <table class="width-100 activities">
+                    <thead>
+                        <tr>
+                            <td>Aspectos e conceitos</td>
+                            <td>Ótimo</td>
+                            <td>Bom</td>
+                            <td>Regular</td>
+                            <td>Insuficiente</td>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Nível de conhecimento técnico</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Nível de conhecimento prático</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Capacidade de organização no trabalho</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Facilidade de compreensão</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Iniciativa</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Interesse</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Pontualidade</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Responsabilidade</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Cooperação</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Sociabilidade</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Apresentação pessoal</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td>Empenho</td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">2. Comentários:</div>
+            <div class="row">
+                <div class="square-small"></div>
+            </div>
+            <div class="row text-right">
+                Socorcaba, __ de ______ de 20__
+            </div>
+            <div class="row">
+                <table class="subscriptions width-100 height-70-px text-center">
+                    <tbody>
+                        <tr>
+                            <td class="text-center align-table-base">___________________________</td>
+                            <td class="text-center align-table-base">___________________________</td>
+                        </tr>
+                        <tr>
+                            <td class="text-center font-bold height-10-px">Supervisor de Estágio</td>
+                            <td class="text-center font-bold height-10-px">(Estágiario (a) )</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <img src="/images/footer.png" id="img-footer" />
+    </div>
+    <section class="botoes center">
+        <a class="btn btn-primary grey" href="#" onclick="window.history.back()">Voltar</a>
+        <a class="btn btn-primary" onclick="javascript:window.print();">Imprimir</a>
+    </section>
+</body>
+</html>

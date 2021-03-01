@@ -1,0 +1,39 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - RelatoriosHtml</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" href="~/Relatorios/TERMO_DE_REALIZACAO_DE_ESTAGIO_2021">TERMO DE REALIZAÇÃO DE ESTÁGIO 2021</a>
+                            <a class="nav-link text-dark" href="~/Relatorios/DISTRATO_DE_TERMO_DE_COMPROMISSO_DE_ESTAGIO">DISTRATO DE TERMO DE COMPROMISSO DE ESTÁGIO</a>
+                            <a class="nav-link text-dark" href="~/Relatorios/TERMO_DE_CONVENIO_PARA_A_REALIZACAO_DE_ESTAGIO_Agente_de_Integracao">TERMO DE CONVÊNIO PARA A REALIZAÇÃO DE ESTÁGIO (Agente de Integração)</a>
+                            <a class="nav-link text-dark" href="~/Relatorios/RELATORIO_DE_ATIVIDADES_SEMESTRA_DO_ESTAGIO">RELATÓRIO DE ATIVIDADES SEMESTRAL DO ESTÁGIO</a>
+                            <a class="nav-link text-dark" href="~/Relatorios/TERMO_ADITIVO_instrumento_juridico_que_adita_o_Termo_de_Compromisso_de_Estagio_da_Lei">TERMO ADITIVO (instrumento jurídico que adita o Termo de Compromisso de Estágio da Lei no. 11.788/08</a>
+                            <a class="nav-link text-dark" href="~/Relatorios/TERMO_DE_COMPROMISSO_DE_ESTAGIO_TCE">TERMO DE COMPROMISSO DE ESTÁGIO - TCE</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+</body>
+</html>
