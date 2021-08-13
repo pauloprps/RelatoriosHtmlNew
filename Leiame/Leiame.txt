@@ -1,1 +1,20 @@
+Objetivo
+______________________
 
+O objetivo dos relatórios a serem desenvolvidos é que eles sejam muito próximos do que o sistema legado produziu. O que precisamos é uma estrutura html que permita a equipe dev popular os dados dinâmicamente. Portanto, o que precisamos de imediato é uma estrutura html com indicação dos dados variáveis.
+
+
+analitica_prd2.pdf
+______________________
+
+O legado Cobol gerou esse analitica_prd2.pdf.
+
+analitica_prd2.html
+______________________
+
+Além de gerar o pdf, o legado também gerou um html simplão, apenas para poder visualizar no browser, contém apenas uma marcação <html> para que isso seja possível.
+
+ReciboRescisao.cshtml
+______________________
+
+O arquivo ReciboRescisao.cshtml consta como um exemplo a ser seguido, ou seja, o arquivo analitica_prd2, e exemplo pdf e html produzidos pelo legado, deverá ser refeito seguindo sua estrutura, porém, com aparência e codificação seguindo o exemplo do .cshtml.
